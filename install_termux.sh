@@ -22,8 +22,19 @@ fi
 
 npm install
 
-echo "[4/4] Permessi esecuzione..."
+echo "[4/5] Permessi esecuzione..."
 chmod +x run_termux.sh
 
+echo "[5/5] Installazione Widget (Scorciatoie Termux)..."
+SHORTCUTS_DIR="$HOME/.shortcuts"
+mkdir -p "$SHORTCUTS_DIR"
+if [ -d "termux_shortcuts" ]; then
+    cp termux_shortcuts/* "$SHORTCUTS_DIR/"
+    chmod +x "$SHORTCUTS_DIR"/zirel-*
+    echo "Scorciatoie copiate in $SHORTCUTS_DIR"
+fi
+
 echo "Installazione completata con successo!"
-echo "Ora puoi eseguire: ./run_termux.sh"
+echo "Ora puoi lanciare l'app direttamente dalla tua home usando i widget Termux:"
+echo "- zirel-run (per cercare)"
+echo "- zirel-update (per aggiornare)"

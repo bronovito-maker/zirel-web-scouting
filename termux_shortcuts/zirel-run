@@ -1,0 +1,21 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
+
+REPO_DIR="$HOME/zirel-web-scouting"
+
+if [ ! -d "$REPO_DIR" ]; then
+  echo "Cartella non trovata: $REPO_DIR"
+  echo "Esegui prima l'installazione!"
+  sleep 3
+  exit 1
+fi
+
+cd "$REPO_DIR"
+
+if [ ! -f "run_termux.sh" ]; then
+  echo "Script run_termux.sh non trovato!"
+  sleep 3
+  exit 1
+fi
+
+./run_termux.sh

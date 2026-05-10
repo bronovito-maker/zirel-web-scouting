@@ -1,0 +1,17 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
+
+REPO_DIR="$HOME/zirel-web-scouting"
+
+if [ ! -d "$REPO_DIR" ]; then
+  echo "Cartella non trovata: $REPO_DIR"
+  exit 1
+fi
+
+cd "$REPO_DIR"
+echo "Aggiornamento Zirel in corso..."
+git pull
+npm install
+
+echo "Aggiornamento completato!"
+sleep 2
